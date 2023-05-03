@@ -8,10 +8,11 @@ function UserForm({ onUserAdd }) {
     event.preventDefault();
 
     onUserAdd({ name, email });
+    console.log('handleSubmit called');
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} data-testid="user-form">
       <div>
         <label>Name</label>
         <input value={name} onChange={(e) => setName(e.target.value)} />
