@@ -12,7 +12,7 @@ function UserForm({ onUserAdd }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} data-testid="user-form">
+    <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor='name'>Name</label>
         <input
