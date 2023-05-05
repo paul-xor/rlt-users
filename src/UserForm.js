@@ -8,7 +8,8 @@ function UserForm({ onUserAdd }) {
     event.preventDefault();
 
     onUserAdd({ name, email });
-    console.log('handleSubmit called');
+    setEmail('');
+    setName('');
   };
 
   return (
