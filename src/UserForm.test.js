@@ -34,6 +34,9 @@ test('it calls onUserAdd when the form is submitted', () => {
     name: /email/i
   })
 
+  // Find the button
+  const button = screen.getByRole('button');
+
   act(() => {
     // Simulate typing in a name
     user.click(nameInput);
@@ -42,12 +45,10 @@ test('it calls onUserAdd when the form is submitted', () => {
     // Simulate typing in an email
     user.click(emailInput);
     user.keyboard('jane@jane.com');
-  });
-  // Find the button
-  const button = screen.getByRole('button');
 
-  // Simulate clicking the button
-  user.click(button);
+    // Simulate clicking the button
+    user.click(button);
+  });
 
   // Assertion to make sure 'onUserAdd' gets called with email/name
   expect(argList).toHaveLength(1);
@@ -66,10 +67,10 @@ test('empties the two inputs when form is submitted', () => {
     user.keyboard('jane');
     user.click(emailInput);
     user.keyboard('jane@jane.com');
+
+    user.click(button);
   })
 
-  user.click(button);
   expect(nameInput).toHaveValue('');
   expect(emailInput).toHaveValue('');
-
 });
